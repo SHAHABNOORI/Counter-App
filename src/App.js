@@ -13,17 +13,17 @@ class App extends Component {
     ]
   };
 
-  constructor(props) {
-    super(props);
-    console.log("App - Constructor", this.props);
-    // the right place to initial state base on props
-  }
+  // constructor(props) {
+  //   super(props);
+  //   console.log("App - Constructor", this.props);
+  //   // the right place to initial state base on props
+  // }
 
-  componentDidMount() {
-    // the right place for Ajax call
-    // get data from the server
-    console.log("App - Mounted");
-  }
+  // componentDidMount() {
+  //   // the right place for Ajax call
+  //   // get data from the server
+  //   console.log("App - Mounted");
+  // }
 
   handleDelete = id => {
     let counters = this.state.counters.filter(counter => counter.id !== id);
@@ -38,9 +38,17 @@ class App extends Component {
     this.setState({ counters });
   };
 
-  componentDidUpdate() {
-    console.log("App - Updated");
-  }
+  handleDecrement = selected => {
+    const counters = [...this.state.counters];
+    const index = counters.indexOf(selected);
+    counters[index] = { ...selected };
+    counters[index].value--;
+    this.setState({ counters });
+  };
+
+  // componentDidUpdate() {
+  //   console.log("App - Updated");
+  // }
 
   handleReset = () => {
     let counters = this.state.counters.map(counter => {
@@ -51,7 +59,7 @@ class App extends Component {
     this.setState({ counters });
   };
   render() {
-    console.log("App - Rendered");
+    // console.log("App - Rendered");
     return (
       <React.Fragment>
         <Navbar
@@ -64,6 +72,7 @@ class App extends Component {
             onReset={this.handleReset}
             onIncrement={this.handleIncrement}
             onDelete={this.handleDelete}
+            onDecrement={this.handleDecrement}
             counters={this.state.counters}
           />
         </main>

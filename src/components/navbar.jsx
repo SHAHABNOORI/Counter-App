@@ -4,7 +4,7 @@ import React from "react";
 // We can not use lifecycle hooks in this kind of components
 
 const Navbar = ({ totalCounters }) => {
-  console.log("Navbar - Rendered");
+  // console.log("Navbar - Rendered");
 
   return (
     <nav className="navbar navbar-dark bg-dark">

@@ -1,8 +1,14 @@
 import React from "react";
 import Counter from "./counter";
 
-const Counters = ({ counters, onDelete, onIncrement, onReset }) => {
-  console.log("Counters - Rendered");
+const Counters = ({
+  counters,
+  onDelete,
+  onIncrement,
+  onReset,
+  onDecrement
+}) => {
+  // console.log("Counters - Rendered");
   return (
     <React.Fragment>
       <button onClick={onReset} className="btn btn-primary btn-small m-2">
@@ -14,6 +20,7 @@ const Counters = ({ counters, onDelete, onIncrement, onReset }) => {
           counter={counter}
           onDelete={onDelete}
           onIncrement={onIncrement}
+          onDecrement={onDecrement}
         />
       ))}
     </React.Fragment>
